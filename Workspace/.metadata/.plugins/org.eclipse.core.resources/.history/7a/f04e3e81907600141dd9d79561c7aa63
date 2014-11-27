@@ -18,10 +18,18 @@ var addView = Titanium.UI.createView({
 });
 
 // labels for checkboxes
+var label1 = Titanium.UI.createLabel({
+    text: 'Muscle Group',
+    color: 'black',
+    top: 10,
+    height: 40,
+    left: 10
+});
+
 var label2 = Titanium.UI.createLabel({
     text: 'Time',
     color: 'black',
-    top: 110,
+    top: 135,
     height: 30,
     left: 10
 });
@@ -29,7 +37,7 @@ var label2 = Titanium.UI.createLabel({
 var label3 = Titanium.UI.createLabel({
     text: 'Sets',
     color: 'black',
-    top: 110,
+    top: 135,
     height: 30,
     left: 50
 });
@@ -37,21 +45,21 @@ var label3 = Titanium.UI.createLabel({
 var label4 = Titanium.UI.createLabel({
     text: 'Reps',
     color: 'black',
-    top: 110,
+    top: 135,
     height: 30,
     left: 90
 });
 var label5 = Titanium.UI.createLabel({
     text: 'Weight',
     color: 'black',
-    top: 110,
+    top: 135,
     height: 30,
     left: 130
 });
 
 // create a dropdown list
 var picker = Ti.UI.createPicker({
-	top: 10, 
+	top: 55, 
 	height: 35,
 	left: 10,
 	backgroundColor: '#939393' 
@@ -67,7 +75,7 @@ var weight = 0;
 // Time checkbox
 var checkbox1 = Ti.UI.createButton({
     title: '',
-    top: 55,
+    top: 100,
     left: 10,
     width: 30,
     height: 30,
@@ -107,7 +115,7 @@ checkbox1.addEventListener('click', function(e) {
 // sets checkbox
 var checkbox2 = Ti.UI.createButton({
     title: '',
-    top: 55,
+    top: 100,
     left: 50,
     width: 30,
     height: 30,
@@ -147,7 +155,7 @@ checkbox2.addEventListener('click', function(e) {
 // reps checkbox
 var checkbox3 = Ti.UI.createButton({
     title: '',
-    top: 55,
+    top: 100,
     left: 90,
     width: 30,
     height: 30,
@@ -187,7 +195,7 @@ checkbox3.addEventListener('click', function(e) {
 // weight checkbox
 var checkbox4 = Ti.UI.createButton({
     title: '',
-    top: 55,
+    top: 100,
     left: 130,
     width: 30,
     height: 30,
@@ -232,19 +240,14 @@ var nameField = Ti.UI.createTextField({
 	width: '100%',
 });
 
-groupsdata = [];
-
-// make a hint for the drop-down menu
-var row = Ti.UI.createPickerRow({title: 'Muscle Group'});
-groupsdata.push(row);
-
 // get the muscle groups
-var groups = args.db.execute('SELECT * FROM groups ORDER BY name COLLATE NOCASE ASC');
+groupsdata = [];
+var groups = args.db.execute('SELECT * FROM groups');
 
 // add muscle groups to drop-down list
 while (groups.isValidRow())
 {
-	row = Ti.UI.createPickerRow({title: groups.fieldByName('name')});
+	var row = Ti.UI.createPickerRow({title: groups.fieldByName('name')});
 	groupsdata.push(row);
 	groups.next();
 }
@@ -265,12 +268,6 @@ submit.addEventListener('click', function (e) {
 	// check if name field has been filled
 	var not_filled = false;
 	if (nameField.getValue() == '')
-	{
-		not_filled = true;
-	}
-	
-	// check if muscle group has been chosen
-	if (picker.getSelectedRow(0).title == 'Muscle Group')
 	{
 		not_filled = true;
 	}
@@ -298,12 +295,6 @@ submit.addEventListener('click', function (e) {
 		// return to the main view
 		addWin.close();
 	}
-	
-	// if fields haven't been filled alert the user
-	else
-	{
-		alert('All fields have not been filled');
-	}
 });
 
 picker.add(groupsdata);
@@ -312,6 +303,7 @@ addView.add(checkbox1);
 addView.add(checkbox2);
 addView.add(checkbox3);
 addView.add(checkbox4);
+addView.add(label1);
 addView.add(label2);
 addView.add(label3);
 addView.add(label4);

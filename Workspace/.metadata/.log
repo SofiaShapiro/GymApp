@@ -805,3 +805,11 @@ Caused by: java.lang.IllegalArgumentException: Argument not valid
 	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:35)
 	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:135)
 	... 23 more
+
+!ENTRY com.aptana.git.core 4 0 2014-11-27 16:28:30.428
+!MESSAGE (Build 3.4.1.201410281727) [ERROR]  Unable to run update-index: 
+
+!ENTRY com.aptana.git.core 4 1 2014-11-27 16:28:30.433
+!MESSAGE Errors occurred while refreshing git index
+!SUBENTRY 1 com.aptana.core 4 128 2014-11-27 16:28:30.433
+!MESSAGE 

@@ -107,29 +107,29 @@ pastview.addEventListener('click', function (e) {
 		var label1 = Titanium.UI.createLabel({
 		    text:'Exercise',
 		    color: 'black',
-		    width: '53%',
+		    width: '38%',
 		    left: '2%'
 		});
 		var label2 = Titanium.UI.createLabel({
 		    text:'Time',
 		    textAlign: 'center',
 		    color: 'black',
-		    left: '55%',
-		    width: '10%'
+		    left: '40%',
+		    width: '15%'
 		});
 		var label3 = Titanium.UI.createLabel({
 		    text:'Sets',
 		    textAlign: 'center',
 		    color: 'black',
-		    left: '65%',
-		    width: '10%'
+		    left: '55%',
+		    width: '15%'
 		});
 		var label4 = Titanium.UI.createLabel({
 		    text:'Reps',
 		    textAlign: 'center',
 		    color: 'black',
-		    left: '75%',
-		    width: '10%'
+		    left: '70%',
+		    width: '15%'
 		});
 		var label5 = Titanium.UI.createLabel({
 		    text:'Weight',
@@ -156,29 +156,29 @@ pastview.addEventListener('click', function (e) {
 			var label1 = Titanium.UI.createLabel({
 			    text: details.fieldByName('exercise'),
 			    color: 'black',
-			    width: '53%',
+			    width: '38%',
 			    left: '2%'
 			});
 			var label2 = Titanium.UI.createLabel({
 			    text: details.fieldByName('time'),
 			    textAlign: 'center',
 			    color: 'black',
-			    left: '55%',
-			    width: '10%'
+			    left: '40%',
+			    width: '15%'
 			});
 			var label3 = Titanium.UI.createLabel({
 			    text: details.fieldByName('sets'),
 			    textAlign: 'center',
 			    color: 'black',
-			    left: '65%',
-			    width: '10%'
+			    left: '55%',
+			    width: '15%'
 			});
 			var label4 = Titanium.UI.createLabel({
 			    text: details.fieldByName('reps'),
 			    textAlign: 'center',
 			    color: 'black',
-			    left: '75%',
-			    width: '10%'
+			    left: '70%',
+			    width: '15%'
 			});
 			var label5 = Titanium.UI.createLabel({
 			    text: details.fieldByName('weight'),
