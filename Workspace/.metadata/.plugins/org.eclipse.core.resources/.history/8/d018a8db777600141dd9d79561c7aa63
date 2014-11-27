@@ -63,10 +63,6 @@ groupview.addEventListener('click', function (e) {
 	// to make sure a blank area was not clicked
 	if (e.source.title != null)
 	{
-		
-		// change the title of the exercise win
-		exercisesWin.setTitle(e.source.title);
-		
 		// get the relevant ecercises from the database
 		var exercises = args.db.execute("SELECT * FROM list where muscle_group = ? ORDER BY name COLLATE NOCASE ASC", e.source.title);
 		var k = 0;

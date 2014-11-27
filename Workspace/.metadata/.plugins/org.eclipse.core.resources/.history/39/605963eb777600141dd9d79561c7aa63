@@ -112,14 +112,14 @@ function newWorkout (e)
 		workout_id = workout_info.fieldByName('id') + 1;	
 	}
 	
+	// close workout_info
+	workout_info.close();
+	
 	// else if it is the very first workout
 	else
 	{
 		workout_id = 1;
 	}
-	
-	// close workout_info
-	workout_info.close();
 	
 	// set the current workout_id in the database
 	db.execute('DELETE FROM current');

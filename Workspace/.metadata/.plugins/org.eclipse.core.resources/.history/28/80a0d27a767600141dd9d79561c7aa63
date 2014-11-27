@@ -1,7 +1,7 @@
 // get the arguments that were passed in.
 var args = arguments[0] || {};
 
-// create a view and window if one has not already been made
+// create a view and window
 if (typeof formsWin == 'undefined' ) 
 {
 	var formsWin = Titanium.UI.createWindow({
@@ -14,7 +14,6 @@ else
 {
 	formsWin.open();
 }
-
 var formsview = Titanium.UI.createScrollView({
     scrollType:"vertical",
     left:'0dp',
@@ -98,7 +97,6 @@ submit.addEventListener('click', function (e) {
 		{
 			args.db.execute('INSERT INTO workouts (id) values (?)', args.workout_id);
 		}
-		
 		// dynamically create the query for adding an exercise
 		var query = "INSERT INTO workout_info (exercise, workout_id, ";
 		for (i = 0; i < forms.length; i++)

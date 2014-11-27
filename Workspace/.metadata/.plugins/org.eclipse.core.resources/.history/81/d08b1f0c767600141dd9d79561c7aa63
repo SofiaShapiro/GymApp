@@ -36,7 +36,7 @@ var args = arguments[0] || {};
 // for keeping track of workouts
 listed = [];
 
-// function for listing workouts
+
 function list_workouts ()
 {
 	// delete previous list
@@ -65,17 +65,9 @@ function list_workouts ()
 		listed.push(new_but);
 		query.next();
 		i++;
-		
-		// close the queryd time
-		format_time.close();
 	}
-	
-	// close the queryd info
-	query.close();
 }
 
-
-// list the workouts
 list_workouts();
 
 // Event listener for when a workout is chosen
@@ -83,10 +75,6 @@ pastview.addEventListener('click', function (e) {
 	// to make sure a blank area was not clicked
 	if (e.source.title != null)
 	{
-		
-		// change the title of the window
-		detailWin.setTitle(e.source.title);
-		
 		// clear table if previously used
 		if (typeof table != 'undefined' )
 		{

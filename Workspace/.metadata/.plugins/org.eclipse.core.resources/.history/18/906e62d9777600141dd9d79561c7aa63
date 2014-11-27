@@ -83,10 +83,6 @@ pastview.addEventListener('click', function (e) {
 	// to make sure a blank area was not clicked
 	if (e.source.title != null)
 	{
-		
-		// change the title of the window
-		detailWin.setTitle(e.source.title);
-		
 		// clear table if previously used
 		if (typeof table != 'undefined' )
 		{
