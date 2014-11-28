@@ -21,7 +21,7 @@ var addView = Titanium.UI.createView({
 var label2 = Titanium.UI.createLabel({
     text: 'Time',
     color: 'black',
-    top: 90,
+    top: 110,
     height: 30,
     left: 10
 });
@@ -29,7 +29,7 @@ var label2 = Titanium.UI.createLabel({
 var label3 = Titanium.UI.createLabel({
     text: 'Sets',
     color: 'black',
-    top: 90,
+    top: 110,
     height: 30,
     left: 50
 });
@@ -37,14 +37,14 @@ var label3 = Titanium.UI.createLabel({
 var label4 = Titanium.UI.createLabel({
     text: 'Reps',
     color: 'black',
-    top: 90,
+    top: 110,
     height: 30,
     left: 90
 });
 var label5 = Titanium.UI.createLabel({
     text: 'Weight',
     color: 'black',
-    top: 90,
+    top: 110,
     height: 30,
     left: 130
 });
@@ -228,7 +228,7 @@ var nameField = Ti.UI.createTextField({
 	color: '#336699',
 	hintText: 'Exercise name',
 	height: 35,
-	top: 130,
+	top: 170,
 	width: '100%',
 });
 

@@ -1,6 +1,6 @@
 =run
 Gym\ app\:launchMode=run
-Gym\ app\:launchShortcut=com.appcelerator.titanium.mobile.ui.android.device.launchShortcut.BH904UZ313
+Gym\ app\:launchShortcut=com.appcelerator.titanium.mobile.ui.android.device.launchShortcut
 LAST_LAUNCH_TIMESTAMP=1417052798087
 eclipse.preferences.version=1
 preference.show.console.onError=true
