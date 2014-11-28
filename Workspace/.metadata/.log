@@ -813,3 +813,39 @@ Caused by: java.lang.IllegalArgumentException: Argument not valid
 !MESSAGE Errors occurred while refreshing git index
 !SUBENTRY 1 com.aptana.core 4 128 2014-11-27 16:28:30.433
 !MESSAGE 
+
+!ENTRY com.aptana.git.core 4 0 2014-11-27 20:11:31.635
+!MESSAGE (Build 3.4.1.201410281727) [ERROR]  Unable to run update-index: 
+
+!ENTRY com.aptana.git.core 4 1 2014-11-27 20:11:31.763
+!MESSAGE Errors occurred while refreshing git index
+!SUBENTRY 1 com.aptana.core 4 128 2014-11-27 20:11:31.763
+!MESSAGE 
+
+!ENTRY com.appcelerator.titanium.android.core 4 0 2014-11-28 01:00:34.722
+!MESSAGE There are no Android devices connected
+
+!ENTRY org.eclipse.core.jobs 4 2 2014-11-28 01:27:39.286
+!MESSAGE An internal error occurred during: "Sending Analytics Ping ...".
+!STACK 0
+java.lang.NullPointerException
+	at com.aptana.usage.internal.DefaultAnalyticsEventHandler.getAnalyticsLogger(DefaultAnalyticsEventHandler.java:207)
+	at com.aptana.usage.internal.DefaultAnalyticsEventHandler.sendEventSync(DefaultAnalyticsEventHandler.java:241)
+	at com.aptana.usage.internal.DefaultAnalyticsEventHandler$1.run(DefaultAnalyticsEventHandler.java:75)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:53)
+!SESSION 2014-11-28 01:27:52.641 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=1.7.0_40
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=en_US
+Command-line arguments:  -os win32 -ws win32 -arch x86
+
+!ENTRY org.eclipse.ui 2 0 2014-11-28 01:27:55.995
+!MESSAGE Warnings while parsing the images from the 'org.eclipse.ui.commandImages' extension point.
+!SUBENTRY 1 org.eclipse.ui 2 0 2014-11-28 01:27:55.995
+!MESSAGE Cannot bind to an undefined command: plug-in='com.appcelerator.titanium.android.ui', id='com.appcelerator.titanium.mobile.command.run_on_device.android'
+!SUBENTRY 1 org.eclipse.ui 2 0 2014-11-28 01:27:55.995
+!MESSAGE Cannot bind to an undefined command: plug-in='com.appcelerator.titanium.android.ui', id='com.appcelerator.titanium.mobile.command.debug_on_device.android'
+
+!ENTRY com.appcelerator.titanium.ui.ide 4 0 2014-11-28 01:29:23.347
+!MESSAGE (Build 3.4.1.201410281727) [ERROR] com.appcelerator.titanium.core/debug/dashboard Unknown SDK iphone

@@ -8,32 +8,9 @@ var indexWin = Titanium.UI.createWindow({
 var indexView = Titanium.UI.createScrollView({
     scrollType:"vertical",
     left:'0dp',
-    top: 0,
-    height: '100%',
     width:'100%'
 });
 
-// create a menu for droid
-if (Ti.Platform.osname == "android") 
-{
-	indexWin.addEventListener('open', function(e) {
-    	var activity = indexWin.activity;
-	  
-	    // Menu Item Specific Code
-	    activity.onCreateOptionsMenu = function(e) {
-	        var menu = e.menu;
-	         
-	        // Menu Item 1
-	        var menuItem1 = menu.add({
-	            title : "Add exercise",
-	            showAsAction : Ti.Android.SHOW_AS_ACTION_ALWAYS
-	        });
-	        menuItem1.addEventListener("click", function(e) {
-	            var addView = Alloy.createController('add', {db:db}).getView();
-	        });   
-	    };  
-	});
-}
 // button for new workout
 var newBut = $.UI.create('Button', {
     top: 10,
@@ -59,7 +36,7 @@ continueBut.addEventListener('click', function(e) {
 
 // button for looking at past workouts
 var pastBut = $.UI.create('Button', {
-    top: 60,
+    top: 70,
     title: 'Past Workouts',
     id: 'button'
 });
@@ -68,24 +45,20 @@ pastBut.addEventListener('click', function(e) {
 	var pastView = Alloy.createController('past', {db:db}).getView();
 });
 
-// button for adding an exercise if iOS
-if (Ti.Platform.osname == "iOS") 
-{
-	var addBut = $.UI.create('Button', {
-	    top: 160,
-	    title: 'Add exercise',
-	    id: 'button'
-	});
-	
-	addBut.addEventListener('click', function(e) {
-		var addView = Alloy.createController('add', {db:db}).getView();
-	});
-	
-	indexView.add(addBut);
-}
+// button for adding an exercise
+var addBut = $.UI.create('Button', {
+    top: 130,
+    title: 'Add exercise',
+    id: 'button'
+});
+
+addBut.addEventListener('click', function(e) {
+	var addView = Alloy.createController('add', {db:db}).getView();
+});
+
 // button for ending a workout
 var endBut = $.UI.create('Button', {
-    top: 110,
+    top: 190,
     title: 'End Workout',
     id: 'button'
 });
@@ -190,6 +163,7 @@ function end_workout (e)
 
 // add buttons to main screen
 indexView.add(pastBut);
+indexView.add(addBut);
 
 // if a workout hasn't been started
 if (typeof workout_id == 'undefined')
