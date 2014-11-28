@@ -110,8 +110,8 @@ var endview = Titanium.UI.createScrollView({
 
 // button for ending a workout
 var endBut = $.UI.create('Button', {
-    top: '10%',
-    height: '80%',
+    top: '2%',
+    height: '6%',
     title: 'End Workout',
     id: 'button'
 });

@@ -55,7 +55,7 @@ function list_workouts ()
 	{
 		var format_time = args.db.execute("SELECT strftime('%Y-%m-%d %H:%M', ?) as time", query.fieldByName('timestamp'));
 		var new_but =$.UI.create('Button', {
-		    top: 10 + i * 50,
+		    top: 10 + i * 60,
 		    title: format_time.fieldByName('time'),
 		    code: query.fieldByName('id'),
 		    id: 'button',
@@ -205,7 +205,7 @@ pastview.addEventListener('click', function (e) {
 		var del = $.UI.create('Button', {
 		   title: 'Delete',
 		   id: "button",
-		   bottom: 10
+		   bottom: 0
 		});
 		del.addEventListener('click', function (e) {
 			

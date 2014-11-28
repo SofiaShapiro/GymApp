@@ -44,7 +44,7 @@ var i = 0;
 while (groups.isValidRow())
 {
 	groupview.add($.UI.create('Button', {
-	    top: 10 + i * 50,
+	    top: 10 + i * 60,
 	    title: groups.fieldByName('name'),
 	    id: 'button'
 	}));
@@ -81,7 +81,7 @@ groupview.addEventListener('click', function (e) {
 		while (exercises.isValidRow())
 		{
 			var button = $.UI.create('Button', {
-			    top: 10 + k * 50,
+			    top: 10 + k * 60,
 			    title: exercises.fieldByName('name'),
 			    id: 'button'
 			});
@@ -110,8 +110,7 @@ var endview = Titanium.UI.createScrollView({
 
 // button for ending a workout
 var endBut = $.UI.create('Button', {
-    top: '10%',
-    height: '80%',
+    top: 0,
     title: 'End Workout',
     id: 'button'
 });

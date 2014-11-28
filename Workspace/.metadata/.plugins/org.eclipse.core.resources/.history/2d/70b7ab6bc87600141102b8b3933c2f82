@@ -205,7 +205,7 @@ pastview.addEventListener('click', function (e) {
 		var del = $.UI.create('Button', {
 		   title: 'Delete',
 		   id: "button",
-		   bottom: 10
+		   bottom: 0
 		});
 		del.addEventListener('click', function (e) {
 			
