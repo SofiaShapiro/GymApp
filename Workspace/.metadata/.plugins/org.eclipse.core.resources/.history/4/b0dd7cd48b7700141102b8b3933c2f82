@@ -204,7 +204,7 @@ pastview.addEventListener('click', function (e) {
 		// delete button for deleting a workout
 		var del = $.UI.create('Button', {
 		   title: 'Delete',
-		   id: "botbutton",
+		   id: "button",
 		   bottom: 10
 		});
 		del.addEventListener('click', function (e) {

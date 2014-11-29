@@ -254,9 +254,9 @@ groups.close();
 
 // create a submit button
 var submit = $.UI.create('Button', {
-   bottom: 10,
+   bottom: 0,
    title: 'Submit',
-   id: "botbutton"
+   id: "button"
 });
 
 // add an event listener for the submit button

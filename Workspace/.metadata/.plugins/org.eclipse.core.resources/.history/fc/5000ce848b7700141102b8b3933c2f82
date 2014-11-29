@@ -113,7 +113,7 @@ var endBut = $.UI.create('Button', {
     top: '10%',
     height: '80%',
     title: 'End Workout',
-    id: 'botbutton'
+    id: 'button'
 });
 
 endBut.addEventListener('click', function(e) {

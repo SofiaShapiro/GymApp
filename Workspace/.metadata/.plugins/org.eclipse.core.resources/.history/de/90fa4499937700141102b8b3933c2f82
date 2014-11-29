@@ -100,6 +100,7 @@ submit.addEventListener('click', function (e) {
 			
 			// update stats
 			args.db.execute('UPDATE stats SET workouts = workouts + 1');
+			alert('updated workouts');
 		}
 		
 		// dynamically create the query for adding an exercise
@@ -136,12 +137,12 @@ submit.addEventListener('click', function (e) {
 		var check2 = false;
 		for (i = 0; i < forms.length; i++)
 		{
-			if (forms[i].getHintText() == 'weight')
+			if (forms[i].title == 'weight')
 			{
 				check1 = true;
 				lifted *= forms[i].getValue();
 			}
-			if (forms[i].getHintText() == 'sets' || forms[i].getHintText() == 'reps')
+			if (forms[i].title == 'sets' || forms[i].title == 'reps')
 			{
 				check2 = true;
 				lifted *= forms[i].getValue();
@@ -152,6 +153,7 @@ submit.addEventListener('click', function (e) {
 		if (check1 == true && check2 == true)
 		{
 			args.db.execute('UPDATE stats SET weight = weight + ?', lifted);
+			alert('updated lifted');
 		}
 		
 		// return to the muscle groups view

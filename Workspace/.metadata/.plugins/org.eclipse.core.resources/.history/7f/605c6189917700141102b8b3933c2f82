@@ -97,7 +97,7 @@ endBut.addEventListener('click', function(e) {
 
 // button for stats
 var statsBut = $.UI.create('Button', {
-    top: 110,
+    top: 160,
     title: 'Statistics',
     id: 'button'
 });

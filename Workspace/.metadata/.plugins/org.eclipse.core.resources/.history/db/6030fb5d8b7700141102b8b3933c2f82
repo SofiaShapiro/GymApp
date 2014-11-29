@@ -8,12 +8,12 @@
 	backgroundColor: '#DADADA'
 }
 
-"#botbutton": {
+"#headbutton": {
 	font: {
-		fontSize: 24
+		fontSize: 16
 	},
-	width: '96%',
-	height: 40,
+	width: '10%',
+	height: '10%',
 	color: '#000000',
-	backgroundColor: '#C4C4C4'
+	backgroundColor: '#F2F2F2'
 }

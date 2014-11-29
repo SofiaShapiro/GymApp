@@ -136,12 +136,12 @@ submit.addEventListener('click', function (e) {
 		var check2 = false;
 		for (i = 0; i < forms.length; i++)
 		{
-			if (forms[i].getHintText() == 'weight')
+			if (forms[i].title == 'weight')
 			{
 				check1 = true;
 				lifted *= forms[i].getValue();
 			}
-			if (forms[i].getHintText() == 'sets' || forms[i].getHintText() == 'reps')
+			if (forms[i].title == 'sets' || forms[i].title == 'reps')
 			{
 				check2 = true;
 				lifted *= forms[i].getValue();

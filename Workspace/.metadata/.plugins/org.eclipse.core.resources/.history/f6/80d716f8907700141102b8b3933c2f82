@@ -130,30 +130,6 @@ submit.addEventListener('click', function (e) {
 		// run the query
 		args.db.execute(query);
 		
-		//check if weight was lifted
-		var lifted = 1;
-		var check1 = false;
-		var check2 = false;
-		for (i = 0; i < forms.length; i++)
-		{
-			if (forms[i].getHintText() == 'weight')
-			{
-				check1 = true;
-				lifted *= forms[i].getValue();
-			}
-			if (forms[i].getHintText() == 'sets' || forms[i].getHintText() == 'reps')
-			{
-				check2 = true;
-				lifted *= forms[i].getValue();
-			}
-		}
-		
-		// update stats
-		if (check1 == true && check2 == true)
-		{
-			args.db.execute('UPDATE stats SET weight = weight + ?', lifted);
-		}
-		
 		// return to the muscle groups view
 		formsWin.close();
 		args.exercisesWin.close();
