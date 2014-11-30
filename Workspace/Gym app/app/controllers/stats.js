@@ -41,6 +41,20 @@ var label2 = Titanium.UI.createLabel({
     height: 30
 });
 
+var most_used = args.db.execute('SELECT * FROM list where used > 0 ORDER BY used DESC LIMIT 1');
+
+if (most_used.isValidRow())
+{
+	var label3 = Titanium.UI.createLabel({
+	    text:'Most used exercise: ' + most_used.fieldByName('name') + ', ' + most_used.fieldByName('used') + ' times',
+	    color: 'black',
+	    left: 10,
+	    top: 90,
+	    height: 30
+	});	
+	statsView.add(label3);
+}
+
 statsView.add(label1);
 statsView.add(label2);
 statsWin.add(statsView);

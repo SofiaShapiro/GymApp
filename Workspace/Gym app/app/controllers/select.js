@@ -1,6 +1,41 @@
 // get the arguments that were passed in.
 var args = arguments[0] || {};
 
+// for keeping track of the buttons you've created
+var exercise_buttons = [];
+
+// function for editing exercises view
+function editExercises(exercises)
+{
+	var k = 0;
+	
+	// remove already existing buttons if any
+	for (i = 0; i < exercise_buttons.length; i++)
+	{
+		exercisesview.remove(exercise_buttons[i]);
+	}
+	
+	// create the buttons for the exercises and add them to the view
+	while (exercises.isValidRow())
+	{
+		var button = $.UI.create('Button', {
+		    top: 10 + k * 50,
+		    title: exercises.fieldByName('name'),
+		    id: 'button'
+		});
+		exercise_buttons.push(button);
+		exercisesview.add(button);
+		exercises.next();
+		k++;
+	}
+	
+	// close the queryd info
+	exercises.close();
+	
+	// add the exercises view to the window
+	exercisesWin.add(exercisesview);
+}
+
 // create a window and view for muscle groups
 var mainWin = Titanium.UI.createWindow({
     backgroundColor: '#F2F2F2',
@@ -12,27 +47,27 @@ var groupview = Titanium.UI.createScrollView({
     scrollType:"vertical",
     left:'0dp',
     width:'100%',
-    height: '90%'
+    height: '80%'
 });
 
 // create a window and view for exercises   
 var exercisesWin = Titanium.UI.createWindow({
     backgroundColor: '#F2F2F2',
     layout:'vertical',
-    title: 'Exercises'
 });
+
 var exercisesview = Titanium.UI.createScrollView({
     scrollType:"vertical",
     left:'0dp',
     width:'100%'
 });
 
-// event listener for when a exercise is selected
+// event listeners for when a exercise is selected
 exercisesview.addEventListener('click', function(e) {
 	if (e.source.title != null)
 	{
 		// open a forms window that is controleld by forms.js and give it necessary variables
-		Alloy.createController('forms', {title: e.source.title, db: args.db, workout_id: args.workout_id, exercisesWin: exercisesWin}).getView;
+		Alloy.createController('forms', {title: e.source.title, db: args.db, workout_id: args.workout_id, Win: exercisesWin}).getView;
 	}
 });
 
@@ -55,9 +90,6 @@ while (groups.isValidRow())
 // close the queryd info
 groups.close();
 
-// for keeping track of the buttons you've created
-var exercise_buttons = [];
-
 // event listener for when a muscle group button is pressed
 groupview.addEventListener('click', function (e) {
 	// to make sure a blank area was not clicked
@@ -67,35 +99,11 @@ groupview.addEventListener('click', function (e) {
 		// change the title of the exercise win
 		exercisesWin.setTitle(e.source.title);
 		
-		// get the relevant ecercises from the database
+		// get the relevant exercises from the database
 		var exercises = args.db.execute("SELECT * FROM list where muscle_group = ? ORDER BY name COLLATE NOCASE ASC", e.source.title);
-		var k = 0;
 		
-		// remove already existing buttons if any
-		for (i = 0; i < exercise_buttons.length; i++)
-		{
-			exercisesview.remove(exercise_buttons[i]);
-		}
-		
-		// create the buttons for the exercises and add them to the view
-		while (exercises.isValidRow())
-		{
-			var button = $.UI.create('Button', {
-			    top: 10 + k * 50,
-			    title: exercises.fieldByName('name'),
-			    id: 'button'
-			});
-			exercise_buttons.push(button);
-			exercisesview.add(button);
-			exercises.next();
-			k++;
-		}
-		
-		// close the queryd info
-		exercises.close();
-		
-		// add the exercises view to the window and open it
-		exercisesWin.add(exercisesview);
+		// edit the exercisesview and open the window
+		editExercises(exercises);
 		exercisesWin.open();
 	}
 });
@@ -105,13 +113,16 @@ var endview = Titanium.UI.createScrollView({
     scrollType:"vertical",
     bottom:'0dp',
     width:'100%',
-    height: '10%'
+    height: '20%'
 });
 
 // button for ending a workout
 var endBut = $.UI.create('Button', {
-    top: '10%',
-    height: '80%',
+    bottom: '5%',
+    height: '42.5%',
+    font: {
+		fontSize: 20
+	},
     title: 'End Workout',
     id: 'botbutton'
 });
@@ -125,8 +136,73 @@ endBut.addEventListener('click', function(e) {
 	mainWin.close();
 });
 
-// add the button to the view
+// button for favorite exercises
+var favoritesBut = $.UI.create('Button', {
+    top: '5%',
+    height: '42.5%',
+    left: '2%',
+    width: '47%',
+    font: {
+		fontSize: 20
+	},
+    title: 'Favorites',
+    id: 'botbutton'
+});
+
+favoritesBut.addEventListener('click', function(e) {
+	
+	// change the title of the exercise win
+	exercisesWin.setTitle('Favorites');
+	
+	// get the relevant exercises from the database
+	var exercises = args.db.execute("SELECT * FROM list where favorite = 1 ORDER BY name COLLATE NOCASE ASC");
+	editExercises(exercises);
+		
+	// open the window
+	exercisesWin.open();
+});
+
+// button for top exercises
+var topBut = $.UI.create('Button', {
+    top: '5%',
+    height: '42.5%',
+    right: '2%',
+    width: '47%',
+    font: {
+		fontSize: 20
+	},
+    title: 'Most used',
+    id: 'botbutton'
+});
+
+topBut.addEventListener('click', function(e) {
+	
+	// change the title of the exercise win
+	exercisesWin.setTitle('Most used');
+
+	// get the relevant exercises from the database
+	var exercises = args.db.execute("SELECT * FROM list where used > 0 ORDER BY used DESC limit 15");
+	editExercises(exercises);
+	
+	// open the winow
+	exercisesWin.open();
+});
+
+// app event listener to check if favorites have been updated
+Ti.App.addEventListener('favorites_updated', function(e){
+	
+	if (exercisesWin.getTitle() == 'Favorites')
+	{
+		// get the relevant exercises from the database
+		var exercises = args.db.execute("SELECT * FROM list where favorite = 1 ORDER BY name COLLATE NOCASE ASC");
+		editExercises(exercises);	
+	}	
+});
+
+// add the buttons to the view
 endview.add(endBut);
+endview.add(favoritesBut);
+endview.add(topBut);
 
 // add the views to the main window and open it
 mainWin.add(groupview);

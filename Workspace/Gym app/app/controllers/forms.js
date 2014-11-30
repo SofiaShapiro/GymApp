@@ -72,6 +72,70 @@ var submit = $.UI.create('Button', {
    id: "botbutton"
 });
 
+// Favorites checkbox
+var checkbox1 = Ti.UI.createButton({
+    title: '',
+    top: 60 + p * 45,
+    left: 10,
+    width: 30,
+    height: 30,
+    borderColor: '#666',
+    borderWidth: 2,
+    borderRadius: 3,
+    backgroundColor: '#aaa',
+    color: '#fff',
+    font:{fontSize: 25, fontWeight: 'bold'},
+    value: false //value is a custom property in this casehere.
+});
+ 
+//Attach some simple on/off actions
+checkbox1.on = function() {
+    this.backgroundColor = '#007690';
+    this.title='\u2713';
+    this.value = true;
+    args.db.execute('UPDATE list set favorite = 1 where name = ?', args.title);
+    
+    // fire a global event that favorites have been updated
+	Ti.App.fireEvent('favorites_updated');
+};
+ 
+checkbox1.off = function() {
+    this.backgroundColor = '#aaa';
+    this.title='';
+    this.value = false;
+    args.db.execute('UPDATE list set favorite = 0 where name = ?', args.title);
+    
+    // fire a global event that favorites have been updated
+	Ti.App.fireEvent('favorites_updated');
+};
+ 
+checkbox1.addEventListener('click', function(e) {
+    if(false == e.source.value) {
+        e.source.on();
+    } else {
+        e.source.off();
+    }
+});
+
+// set the checkbox state
+if (chosen.fieldByName('favorite') == 1)
+{
+	checkbox1.on();
+}
+else
+{
+	checkbox1.off();
+}
+
+// favorites label
+var label1 = Titanium.UI.createLabel({
+    text:'Favorite exercise',
+    color: 'black',
+    left: 50,
+    top: 60 + p * 45,
+    height: 30
+});
+
 // keep track of the button
 submit_button = submit;
 
@@ -101,6 +165,9 @@ submit.addEventListener('click', function (e) {
 			// update stats
 			args.db.execute('UPDATE stats SET workouts = workouts + 1');
 		}
+		
+		// update usage
+		args.db.execute('UPDATE list SET used = used + 1 WHERE name = ?', args.title);
 		
 		// dynamically create the query for adding an exercise
 		var query = "INSERT INTO workout_info (exercise, workout_id, ";
@@ -156,12 +223,14 @@ submit.addEventListener('click', function (e) {
 		
 		// return to the muscle groups view
 		formsWin.close();
-		args.exercisesWin.close();
+		args.Win.close();
 	}
 });
 
-// add the submit button to the view
+// add the submit button and favorites checkbox to the view
 formsview.add(submit);
+formsview.add(checkbox1);
+formsview.add(label1);
 
 // close the queryd info
 chosen.close();
