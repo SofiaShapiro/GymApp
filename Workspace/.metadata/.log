@@ -849,3 +849,31 @@ Command-line arguments:  -os win32 -ws win32 -arch x86
 
 !ENTRY com.appcelerator.titanium.ui.ide 4 0 2014-11-28 01:29:23.347
 !MESSAGE (Build 3.4.1.201410281727) [ERROR] com.appcelerator.titanium.core/debug/dashboard Unknown SDK iphone
+
+!ENTRY com.appcelerator.titanium.android.core 4 0 2014-11-29 20:20:18.056
+!MESSAGE There are no Android devices connected
+
+!ENTRY org.eclipse.core.jobs 4 2 2014-11-29 23:18:23.666
+!MESSAGE An internal error occurred during: "Sending Analytics Ping ...".
+!STACK 0
+java.lang.NullPointerException
+	at com.aptana.usage.internal.DefaultAnalyticsEventHandler.getAnalyticsLogger(DefaultAnalyticsEventHandler.java:207)
+	at com.aptana.usage.internal.DefaultAnalyticsEventHandler.sendEventSync(DefaultAnalyticsEventHandler.java:241)
+	at com.aptana.usage.internal.DefaultAnalyticsEventHandler$1.run(DefaultAnalyticsEventHandler.java:75)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:53)
+!SESSION 2014-11-29 23:20:11.637 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=1.7.0_40
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=en_US
+Command-line arguments:  -os win32 -ws win32 -arch x86
+
+!ENTRY org.eclipse.ui 2 0 2014-11-29 23:20:14.574
+!MESSAGE Warnings while parsing the images from the 'org.eclipse.ui.commandImages' extension point.
+!SUBENTRY 1 org.eclipse.ui 2 0 2014-11-29 23:20:14.574
+!MESSAGE Cannot bind to an undefined command: plug-in='com.appcelerator.titanium.android.ui', id='com.appcelerator.titanium.mobile.command.run_on_device.android'
+!SUBENTRY 1 org.eclipse.ui 2 0 2014-11-29 23:20:14.574
+!MESSAGE Cannot bind to an undefined command: plug-in='com.appcelerator.titanium.android.ui', id='com.appcelerator.titanium.mobile.command.debug_on_device.android'
+
+!ENTRY com.appcelerator.titanium.ui.ide 4 0 2014-11-29 23:22:06.326
+!MESSAGE (Build 3.4.1.201410281727) [ERROR] com.appcelerator.titanium.core/debug/dashboard Unknown SDK iphone
