@@ -11,14 +11,6 @@ var pastview = Titanium.UI.createScrollView({
     width:'100%'
 });
 
-// event listener for swipe functionality
-pastview.addEventListener('swipe', function(e){
-	if (e.direction == 'right')
-	{
-		pastWin.close();
-	}
-});
-
 // Create a window and view for workout details
 var detailWin = Titanium.UI.createWindow({
     backgroundColor: '#F2F2F2',
@@ -30,14 +22,6 @@ var detailview = Titanium.UI.createView({
     scrollType:"vertical",
     left:'0dp',
     width:'100%'
-});
-
-// event listener for swipe functionality
-detailview.addEventListener('swipe', function(e){
-	if (e.direction == 'right')
-	{
-		detailWin.close();
-	}
 });
 
 var workout_id;

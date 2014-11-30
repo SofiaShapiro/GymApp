@@ -4,8 +4,7 @@ var args = arguments[0] || {};
 var statsWin = Titanium.UI.createWindow({
     backgroundColor: '#F2F2F2',
     layout:'vertical',
-    title: 'Statistics',
-    left:'100%'
+    title: 'Statistics'
 });
 
 var statsView = Titanium.UI.createView({
@@ -13,7 +12,6 @@ var statsView = Titanium.UI.createView({
     width:'100%'
 });
 
-// event listener for swipe functionality
 statsView.addEventListener('swipe', function(e){
 	if (e.direction == 'right')
 	{

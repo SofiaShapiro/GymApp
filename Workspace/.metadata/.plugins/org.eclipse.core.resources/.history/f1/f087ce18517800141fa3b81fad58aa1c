@@ -1,5 +1,13 @@
 var args = arguments[0] || {};
 
+var slide_in = Titanium.UI.createAnimation();
+    slide_in.left = 0;
+    slide_in.duration = 300;
+    
+var slide_out = Titanium.UI.createAnimation();
+    slide_out.right = 0;
+    slide_out.duration = 300;
+
 // Create a window and view for stats
 var statsWin = Titanium.UI.createWindow({
     backgroundColor: '#F2F2F2',
@@ -67,4 +75,4 @@ if (most_used.isValidRow())
 statsView.add(label1);
 statsView.add(label2);
 statsWin.add(statsView);
-statsWin.open();
+statsWin.open(slide_in);

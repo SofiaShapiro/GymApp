@@ -1,4 +1,5 @@
 var args = arguments[0] || {};
+require('../lib/includes');
 
 // Create a window and view for stats
 var statsWin = Titanium.UI.createWindow({

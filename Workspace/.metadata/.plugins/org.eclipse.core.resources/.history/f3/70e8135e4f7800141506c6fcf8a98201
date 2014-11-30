@@ -1,4 +1,5 @@
 var args = arguments[0] || {};
+require('../lib/includes');
 
 // Create a window and view for stats
 var statsWin = Titanium.UI.createWindow({
@@ -67,4 +68,4 @@ if (most_used.isValidRow())
 statsView.add(label1);
 statsView.add(label2);
 statsWin.add(statsView);
-statsWin.open();
+statsWin.open(includes.slide_in);

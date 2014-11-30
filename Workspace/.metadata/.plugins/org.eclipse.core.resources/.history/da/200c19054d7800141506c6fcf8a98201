@@ -21,14 +21,6 @@ var formsview = Titanium.UI.createScrollView({
     width:'100%'
 });
 
-// event listener for swipe functionality
-formsview.addEventListener('swipe', function(e){
-	if (e.direction == 'right')
-	{
-		formsWin.close();
-	}
-});
-
 // for keeping track of the forms
 var forms = [];
 

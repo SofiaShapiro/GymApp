@@ -1,0 +1,3 @@
+var slide_in = Titanium.UI.createAnimation();
+    slide_in.left = 0;
+    slide_in.duration = 300;

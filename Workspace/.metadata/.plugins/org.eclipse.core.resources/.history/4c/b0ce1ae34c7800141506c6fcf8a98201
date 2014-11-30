@@ -50,14 +50,6 @@ var groupview = Titanium.UI.createScrollView({
     height: '80%'
 });
 
-// event listener for swipe functionality
-groupview.addEventListener('swipe', function(e){
-	if (e.direction == 'right')
-	{
-		mainWin.close();
-	}
-});
-
 // create a window and view for exercises   
 var exercisesWin = Titanium.UI.createWindow({
     backgroundColor: '#F2F2F2',
@@ -76,14 +68,6 @@ exercisesview.addEventListener('click', function(e) {
 	{
 		// open a forms window that is controleld by forms.js and give it necessary variables
 		Alloy.createController('forms', {title: e.source.title, db: args.db, workout_id: args.workout_id, Win: exercisesWin}).getView;
-	}
-});
-
-// event listener for swipe functionality
-exercisesview.addEventListener('swipe', function(e){
-	if (e.direction == 'right')
-	{
-		exercisesWin.close();
 	}
 });
 

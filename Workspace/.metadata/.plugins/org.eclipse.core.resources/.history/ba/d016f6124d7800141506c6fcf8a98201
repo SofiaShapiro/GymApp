@@ -17,14 +17,6 @@ var addView = Titanium.UI.createView({
 	left: 0,
 });
 
-// event listener for swipe functionality
-addview.addEventListener('swipe', function(e){
-	if (e.direction == 'right')
-	{
-		addWin.close();
-	}
-});
-
 // labels for checkboxes
 var label2 = Titanium.UI.createLabel({
     text: 'Time',
