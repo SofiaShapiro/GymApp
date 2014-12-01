@@ -952,3 +952,42 @@ java.lang.NullPointerException
 	at com.aptana.usage.internal.DefaultAnalyticsEventHandler.sendEventSync(DefaultAnalyticsEventHandler.java:241)
 	at com.aptana.usage.internal.DefaultAnalyticsEventHandler$1.run(DefaultAnalyticsEventHandler.java:75)
 	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:53)
+
+!ENTRY org.eclipse.core.jobs 4 2 2014-11-30 23:06:33.511
+!MESSAGE An internal error occurred during: "Update iOS info".
+!STACK 0
+java.lang.NullPointerException
+	at com.appcelerator.titanium.core.internal.cli.NodeTitaniumCLI.getUserManager(NodeTitaniumCLI.java:391)
+	at com.appcelerator.titanium.core.internal.cli.NodeTitaniumCLI.run(NodeTitaniumCLI.java:190)
+	at com.appcelerator.titanium.core.internal.cli.NodeTitaniumCLI.run(NodeTitaniumCLI.java:324)
+	at com.appcelerator.titanium.core.internal.cli.NodeTitaniumCLI.runCommand(NodeTitaniumCLI.java:146)
+	at com.appcelerator.titanium.core.internal.cli.NodeTitaniumCLI.runCommandWithNoLogin(NodeTitaniumCLI.java:349)
+	at com.appcelerator.titanium.core.internal.cli.NodeTitaniumCLI.info(NodeTitaniumCLI.java:633)
+	at com.appcelerator.titanium.ios.core.IOSSDKLocator.loadTiInfo(IOSSDKLocator.java:577)
+	at com.appcelerator.titanium.ios.core.IOSSDKLocator.updateTiInfo(IOSSDKLocator.java:144)
+	at com.appcelerator.titanium.ios.core.IOSSDKLocator.access$0(IOSSDKLocator.java:142)
+	at com.appcelerator.titanium.ios.core.IOSSDKLocator$1.run(IOSSDKLocator.java:163)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:53)
+
+!ENTRY org.eclipse.core.jobs 4 2 2014-11-30 23:06:34.428
+!MESSAGE An internal error occurred during: "Sending Analytics Ping ...".
+!STACK 0
+java.lang.NullPointerException
+	at com.aptana.usage.internal.DefaultAnalyticsEventHandler.getAnalyticsLogger(DefaultAnalyticsEventHandler.java:207)
+	at com.aptana.usage.internal.DefaultAnalyticsEventHandler.sendEventSync(DefaultAnalyticsEventHandler.java:241)
+	at com.aptana.usage.internal.DefaultAnalyticsEventHandler$1.run(DefaultAnalyticsEventHandler.java:75)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:53)
+!SESSION 2014-11-30 23:06:35.134 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=1.6.0_65
+java.vendor=Apple Inc.
+BootLoader constants: OS=macosx, ARCH=x86, WS=cocoa, NL=en_US
+Framework arguments:  -keyring /Users/Timmaka/.eclipse_keyring -showlocation
+Command-line arguments:  -os macosx -ws cocoa -arch x86 -data /Users/Timmaka/Documents/GymApp/Workspace -keyring /Users/Timmaka/.eclipse_keyring -consoleLog -showlocation
+
+!ENTRY org.eclipse.ui 2 0 2014-11-30 23:06:37.546
+!MESSAGE Warnings while parsing the images from the 'org.eclipse.ui.commandImages' extension point.
+!SUBENTRY 1 org.eclipse.ui 2 0 2014-11-30 23:06:37.547
+!MESSAGE Cannot bind to an undefined command: plug-in='com.appcelerator.titanium.android.ui', id='com.appcelerator.titanium.mobile.command.run_on_device.android'
+!SUBENTRY 1 org.eclipse.ui 2 0 2014-11-30 23:06:37.547
+!MESSAGE Cannot bind to an undefined command: plug-in='com.appcelerator.titanium.android.ui', id='com.appcelerator.titanium.mobile.command.debug_on_device.android'
